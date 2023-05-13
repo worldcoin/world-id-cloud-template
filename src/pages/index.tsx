@@ -15,7 +15,7 @@ export default function Home() {
 			nullifier_hash: result.nullifier_hash,
 			proof: result.proof,
 			credential_type: result.credential_type,
-			action: process.env.WLD_ACTION_NAME,
+			action: process.env.NEXT_PUBLIC_WLD_ACTION_NAME,
 			signal: "",
 		};
 		fetch("/api/verify", {
