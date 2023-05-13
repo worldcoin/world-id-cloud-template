@@ -36,7 +36,7 @@ export default function Home() {
 	return (
 		<div className={styles.container}>
 			<div style={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight: "100vh" }}>
-				<IDKitWidget action="free-stuff" onSuccess={onSuccess} handleVerify={handleProof} app_id={process.env.NEXT_PUBLIC_WLD_APP_ID!} credential_types={[CredentialType.Orb, CredentialType.Phone]}>
+				<IDKitWidget action={process.env.WLD_ACTION_NAME!} onSuccess={onSuccess} handleVerify={handleProof} app_id={process.env.NEXT_PUBLIC_WLD_APP_ID!} credential_types={[CredentialType.Orb, CredentialType.Phone]}>
 					{({ open }) => <button onClick={open}>Verify with World ID</button>}
 				</IDKitWidget>
 			</div>
