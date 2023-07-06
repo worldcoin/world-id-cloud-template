@@ -1,18 +1,19 @@
 # World ID Next.js Template
 
-This is a template repository for creating a new project using Next.js and the [World ID SDK](https://id.worldcoin.org). This template isn't intended for use cases that require on-chain verification, but rather for use cases that require off-chain web backend verification.
+This is a template repository for creating a new project using Next.js, TailwindCSS, and the [World ID SDK](https://id.worldcoin.org). This template isn't intended for use cases that require on-chain verification, but rather for use cases that leverage off-chain web backend verification.
 
 ## Getting Started
 
-First, run the development server:
+First, set the correct Node.js version using `nvm` and run the development server:
 
 ```bash
-yarn install && yarn dev
+nvm use 18
+pnpm i && pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
 Copy `.env.example` to `.env.local` and add your World ID App ID and Action Name to the appropriate variables.
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 This template includes an API route to verify the proof returned by the IDKit widget at `/api/verify`. Edit `src/pages/api/verify.ts` to handle any backend functions you need to perform.
 
@@ -32,4 +33,4 @@ To learn more about Next.js and World ID, take a look at the following resources
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Check out the [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
