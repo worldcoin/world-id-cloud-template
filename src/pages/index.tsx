@@ -5,7 +5,7 @@ import type { VerifyReply } from "./api/verify";
 export default function Home() {
 	const onSuccess = (result: ISuccessResult) => {
 		// This is where you should perform frontend actions once a user has been verified, such as redirecting to a new page
-		console.log("Successfully verified with World ID! Your nullifier hash is: " + result.nullifier_hash);
+		window.alert("Successfully verified with World ID! Your nullifier hash is: " + result.nullifier_hash);
 	};
 
 	const handleProof = async (result: ISuccessResult) => {
