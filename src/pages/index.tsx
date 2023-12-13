@@ -1,8 +1,15 @@
-import { CredentialType, IDKitWidget } from "@worldcoin/idkit";
+import { VerificationLevel, IDKitWidget } from "@worldcoin/idkit";
 import type { ISuccessResult } from "@worldcoin/idkit";
 import type { VerifyReply } from "./api/verify";
 
 export default function Home() {
+	if (!process.env.NEXT_PUBLIC_WLD_APP_ID) {
+		throw new Error("app_id is not set in environment variables!");
+	}
+	if (!process.env.NEXT_PUBLIC_WLD_ACTION) {
+		throw new Error("app_id is not set in environment variables!");
+	}
+
 	const onSuccess = (result: ISuccessResult) => {
 		// This is where you should perform frontend actions once a user has been verified, such as redirecting to a new page
 		window.alert("Successfully verified with World ID! Your nullifier hash is: " + result.nullifier_hash);
@@ -14,8 +21,8 @@ export default function Home() {
 			merkle_root: result.merkle_root,
 			nullifier_hash: result.nullifier_hash,
 			proof: result.proof,
-			credential_type: result.credential_type,
-			action: process.env.NEXT_PUBLIC_WLD_ACTION_NAME,
+			verification_level: result.verification_level,
+			action: process.env.NEXT_PUBLIC_WLD_ACTION,
 			signal: "",
 		};
 		console.log("Sending proof to backend for verification:\n", JSON.stringify(reqBody)) // Log the proof being sent to our backend for visibility
@@ -39,12 +46,11 @@ export default function Home() {
 			<div className="flex flex-col items-center justify-center align-middle h-screen">
 				<p className="text-2xl mb-5">World ID Cloud Template</p>
 				<IDKitWidget
-					action={process.env.NEXT_PUBLIC_WLD_ACTION_NAME!}
-					app_id={process.env.NEXT_PUBLIC_WLD_APP_ID!}
+					action={process.env.NEXT_PUBLIC_WLD_ACTION!}
+					app_id={process.env.NEXT_PUBLIC_WLD_APP_ID as `app_${string}`}
 					onSuccess={onSuccess}
 					handleVerify={handleProof}
-					credential_types={[CredentialType.Orb, CredentialType.Phone]}
-					autoClose
+					verification_level={VerificationLevel.Orb} // Change this to VerificationLevel.Device to accept Orb- and Device-verified users
 				>
 					{({ open }) =>
 						<button className="border border-black rounded-md" onClick={open}>

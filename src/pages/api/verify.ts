@@ -23,7 +23,7 @@ export default function handler(
     nullifier_hash: req.body.nullifier_hash,
     merkle_root: req.body.merkle_root,
     proof: req.body.proof,
-    credential_type: req.body.credential_type,
+    verification_level: req.body.verification_level,
     action: req.body.action,
     signal: req.body.signal,
   };
