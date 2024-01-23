@@ -1,7 +1,7 @@
+"use client";
 import { VerificationLevel, IDKitWidget } from "@worldcoin/idkit";
 import type { ISuccessResult } from "@worldcoin/idkit";
-import type { VerifyReply } from "./api/verify";
-
+import type { VerifyReply } from "./api/verify/route";
 export default function Home() {
 	if (!process.env.NEXT_PUBLIC_WLD_APP_ID) {
 		throw new Error("app_id is not set in environment variables!");
