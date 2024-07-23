@@ -15,11 +15,11 @@ Copy `.env.example` to `.env.local` and add your World ID App ID and Action Name
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-This template includes an API route to verify the proof returned by the IDKit widget at `/api/verify`. Edit `src/pages/api/verify.ts` to handle any backend functions you need to perform.
+This template includes an API route to verify the proof returned by the IDKit widget at `/api/verify`. Edit `src/app/api/verify/route.ts` to handle any backend functions you need to perform.
 
-You can start editing the page by modifying `src/pages/index.tsx`. The page auto-updates as you edit the file. Edit the `onSuccess` function to define frontend behavior once the proof has been verified.
+You can start editing the page by modifying `src/app/Worldcoin.tsx`. The page auto-updates as you edit the file. Edit the `onSuccess` function to define frontend behavior once the proof has been verified.
 
-The `src/pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+The `src/app/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
 ## Learn More
 
