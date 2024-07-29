@@ -7,7 +7,7 @@ This is a template repository for creating a new project using Next.js, Tailwind
 First, set the correct Node.js version using `nvm` and run the development server:
 
 ```bash
-nvm use 18
+nvm use 20
 pnpm i && pnpm dev
 ```
 
@@ -15,11 +15,9 @@ Copy `.env.example` to `.env.local` and add your World ID App ID and Action Name
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-This template includes an API route to verify the proof returned by the IDKit widget at `/api/verify`. Edit `src/pages/api/verify.ts` to handle any backend functions you need to perform.
+This template includes a server action to verify the proof returned by the IDKit widget at `src/app/actions/verify.ts`. Edit this file to handle any backend functions you need to perform after the proof has been verified.
 
-You can start editing the page by modifying `src/pages/index.tsx`. The page auto-updates as you edit the file. Edit the `onSuccess` function to define frontend behavior once the proof has been verified.
-
-The `src/pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+You can start editing the client-side page by modifying `src/app/page.tsx`. The page auto-updates as you edit the file. Edit the `onSuccess` function to define frontend behavior once the proof has been verified.
 
 ## Learn More
 
